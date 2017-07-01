@@ -17,8 +17,6 @@
   <ItemGroup>
     <!-- Files not to show in IDE -->
     <None Remove="yarn.lock" />
-	<Content Remove="wwwroot\dist\**" />
-	<None Remove="Client\dist\**" />
     <Content Remove="coverage\**" />
 
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
@@ -45,7 +43,7 @@
   </Target>
   <Target Name="CleanDist" AfterTargets="Clean">
     <ItemGroup>
-      <FilesToDelete Include="Client\dist\**; wwwroot\dist\**"/>
+      <FilesToDelete Include="Client\dist\**; wwwroot\dist\**" />
     </ItemGroup>
     <Delete Files="@(FilesToDelete)" />
     <RemoveDir Directories="Client\dist; wwwroot\dist" />
